@@ -1,0 +1,24 @@
+name: bookforge_studio
+description: A local-first Flutter studio for reading, generating, editing, and publishing books to Git repositories.
+publish_to: "none"
+version: 0.1.0+1
+
+environment:
+  sdk: ">=3.11.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  archive: ^4.0.9
+  file_picker: ^11.0.2
+  http: ^1.6.0
+  shared_preferences: ^2.5.5
+  xml: ^7.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
