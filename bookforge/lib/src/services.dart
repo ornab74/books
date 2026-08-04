@@ -86,7 +86,7 @@ class ImportService {
           .firstOrNull;
       if (style != null && style.toLowerCase().startsWith('heading')) {
         final int parsed = int.tryParse(style.replaceAll(RegExp(r'\D'), '')) ?? 1;
-        final int level = parsed.clamp(1, 6);
+        final int level = parsed < 1 ? 1 : parsed > 6 ? 6 : parsed;
         out.writeln('${List<String>.filled(level, '#').join()} $text\n');
       } else {
         out.writeln('$text\n');
