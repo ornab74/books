@@ -1,0 +1,36 @@
+name: BookForge Flutter
+
+on:
+  push:
+    paths:
+      - 'bookforge/**'
+      - '.github/workflows/bookforge.yml'
+  pull_request:
+    paths:
+      - 'bookforge/**'
+      - '.github/workflows/bookforge.yml'
+
+jobs:
+  analyze-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: bookforge
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Resolve dependencies
+        run: flutter pub get
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Test
+        run: flutter test
